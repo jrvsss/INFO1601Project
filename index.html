@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>Weather</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.">
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+</style>
+
+
+<body>
+
+<!--For Website Controls-->
+    <nav class="sidebar close">
+        <header>
+
+                <div class="text logo-text">
+                    <img src="logo.png" 
+                       style="width: 85%;height: 85%;">
+                    <span class="description">Essentials for your</span>
+                  <span class="description">background. </span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+
+
+<!-- For Clock-->
+
+  <div class="text logo-text" <!--Recycling Styling-->
+                          <a href="#"></a>
+                          
+                            <h1>Time</h1>
+     <body onload="startTime()">
+      <div id="clock">
+      
+      <script>
+      function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+        setTimeout(startTime, 1000);
+      }
+      
+      function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+      }
+      </script>
+      </div>
+     </body>
+  </div>
+<!--For Weather-->
+               <div class="text logo-text" <!--Recycling Styling-->
+                 <a href="#">
+                    <h1>Weather in<i class="fa fa-plus"></i></h1>
+                                            
+                        <div id="location-wrapper">
+                           <h1 id="city"></h1>
+                            <h1 id="country"></h1>
+                              </div>
+                            <span class="desccription"
+                              <div id="data-wrapper">
+                                <div>
+                                  <span id="temperature"></span>
+                                  <span id="degreeSymbol"></span>
+                                  <span id="icon"></span>
+                                </div>
+                                <div id="font-size-wrapper">
+                                <div id="conditions"></div>
+                                <div id="winds"></div>
+                                <div id="pressure"></div>
+                                <div id="humidity"></div>
+                                <div id="sunrise"></div>
+                                <div id="sunset"></div>
+                                </div> 
+                                <div>
+                            
+                                  <button id="unit" type="button" class="btn btn-primary">Use Imperial Units</button>
+                                    </div> 
+                                    <script src="script.js"></script> 
+                           
+                            </span>
+                          </a>
+               </div>
+  
+<!--For Location-->
+                  
+                     <div class="text logo-text" <!--Recycling Styling-->
+                          <a href="#">
+                            <h3>Select Video Location<i class=""></i></h3>
+</a>
+                     </div>
+                  <div>
+                    <a>
+                           <span>
+                            <button class="btn btn-sm btn-dark" id="beach" data-toggle="modal" data-target="#myModal2">Beach 🌊</button>
+                        
+                        <button class="btn btn-sm btn-dark" id="driving" data-toggle="modal" data-target="#myModal2">Driving 🚙 </button>
+                        
+                        <button class="btn btn-sm btn-dark" id="rain" data-toggle="modal" data-target="#myModal2">Rain 🌧 </button>
+                        
+                        <button class="btn btn-sm btn-dark" id="forest" data-toggle="modal" data-target="#myModal2">Forest 🌳 </button>
+</span>
+                         <button class="btn btn-sm btn-dark" id="space" data-toggle="modal" data-target="#myModal2">Space 🌠 </button>
+</span>
+                          <button class="btn btn-sm btn-dark" id="fire" data-toggle="modal" data-target="#myModal2">Fire 🔥 </button>
+                    </span>
+                  </a>
+              </div>
+
+
+    </nav>
+  
+<!--Video Player-->
+    <section class="home">
+        <div class="text">⬅Select Video Location in Sidebar!</div>
+<div id="video_player">
+
+
+<video controls playsinline id="player" width="100%" loop></video>
+
+    <script src="video player.js"></script>
+   
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+
+
+</body>
+</html>
